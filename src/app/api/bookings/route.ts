@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { supabase } from '@/lib/supabase';
+import { supabaseServer } from '@/lib/supabase-server';
 import { sendConfirmationEmail, sendAdminNotification } from '@/lib/email';
 
 export async function POST(request: NextRequest) {
@@ -16,7 +16,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Insert into Supabase
-    const { data, error } = await supabase.from('bookings').insert([
+    const { error } = await supabaseServer.from('bookings').insert([
       {
         clinic_name: clinicName,
         location,
@@ -61,7 +61,7 @@ export async function POST(request: NextRequest) {
 
 export async function GET() {
   try {
-    const { data, error } = await supabase
+    const { data, error } = await supabaseServer
       .from('bookings')
       .select('*')
       .order('created_at', { ascending: false });
