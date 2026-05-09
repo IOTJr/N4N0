@@ -1,10 +1,3 @@
-import { createClient } from '@supabase/supabase-js';
-
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
-const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
-
-export const supabase = createClient(supabaseUrl, supabaseAnonKey);
-
 export interface BookingSubmission {
   id?: string;
   clinic_name: string;
@@ -15,3 +8,9 @@ export interface BookingSubmission {
   message: string;
   created_at?: string;
 }
+
+export const supabase = {
+  from() {
+    throw new Error('The client-side Supabase helper is not configured for direct use in this app.');
+  },
+};

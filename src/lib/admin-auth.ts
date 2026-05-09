@@ -89,10 +89,10 @@ export function verifyAdminSessionToken(token?: string | null) {
   }
 }
 
-export function getAdminSessionTokenFromCookies() {
-  return cookies().get(ADMIN_SESSION_COOKIE)?.value ?? null;
+export async function getAdminSessionTokenFromCookies() {
+  return (await cookies()).get(ADMIN_SESSION_COOKIE)?.value ?? null;
 }
 
-export function isAdminAuthenticated() {
-  return verifyAdminSessionToken(getAdminSessionTokenFromCookies());
+export async function isAdminAuthenticated() {
+  return verifyAdminSessionToken(await getAdminSessionTokenFromCookies());
 }

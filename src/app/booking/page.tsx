@@ -194,8 +194,8 @@ export default function BookingPage() {
           <div className="mt-8 border-t border-white/8 pt-6">
             <p className="text-sm text-slate-400">
               We typically respond within 24 hours. Questions? Email us at{' '}
-              <a href="mailto:hello@yourdomain.com" className="text-cyan-300 hover:text-cyan-200">
-                hello@yourdomain.com
+              <a href="mailto:rohajohn54@gmail.com" className="text-cyan-300 hover:text-cyan-200">
+                rohajohn54@gmail.com
               </a>
             </p>
           </div>

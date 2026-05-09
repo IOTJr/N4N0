@@ -4,7 +4,7 @@ import { getAdminOverview } from '@/lib/admin-overview';
 import AdminDashboard from '@/components/admin-dashboard';
 
 export default async function AdminPage() {
-  if (!isAdminAuthenticated()) {
+  if (!(await isAdminAuthenticated())) {
     redirect('/admin/login');
   }
 

@@ -1,9 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { Resend } from 'resend';
 import { verifyAdminSessionToken, ADMIN_SESSION_COOKIE } from '@/lib/admin-auth';
 import { supabaseServer } from '@/lib/supabase-server';
-
-const resend = new Resend(process.env.RESEND_API_KEY);
+import { sendEmail } from '@/lib/email';
 
 function isAuthorized(request: NextRequest) {
   return verifyAdminSessionToken(request.cookies.get(ADMIN_SESSION_COOKIE)?.value);
@@ -45,7 +43,7 @@ export async function POST(request: NextRequest) {
       console.warn('Invoice insert warning:', insertError.message);
     }
 
-    await resend.emails.send({
+    await sendEmail({
       from: 'N4N0 Billing <billing@n4n0.tech>',
       to,
       subject: `Invoice for ${clinicName} - ${period || 'Current cycle'}`,
