@@ -72,10 +72,10 @@ export default function Home() {
           <nav className="hidden items-center gap-2 md:flex">
             <a href="#services" className="nav-link">Services</a>
             <a href="#process" className="nav-link">Process</a>
-            <a href="#contact" className="nav-link">Contact</a>
+            <a href="/booking" className="nav-link">Demo</a>
           </nav>
 
-          <a href="#contact" className="button button-primary">Book a demo</a>
+          <a href="/booking" className="button button-primary">Book a demo</a>
         </header>
 
         <main id="top" className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
@@ -91,7 +91,7 @@ export default function Home() {
             </div>
 
             <div className="flex flex-wrap items-center gap-4">
-              <a href="#contact" className="button button-primary">Get a free audit</a>
+              <a href="/booking" className="button button-primary">Get a free audit</a>
               <a href="#process" className="button button-secondary">See the workflow</a>
             </div>
 
@@ -237,7 +237,7 @@ export default function Home() {
             </div>
 
             <div className="mt-6 flex flex-wrap gap-3">
-              <a href="#top" className="button button-primary">Back to top</a>
+              <a href="/booking" className="button button-primary">Book a demo</a>
               <a href="#services" className="button button-secondary">Review services</a>
             </div>
           </article>
