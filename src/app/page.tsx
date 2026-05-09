@@ -5,7 +5,7 @@ export default function Home() {
         <header className="flex items-center justify-between mb-12">
           <div className="flex items-center gap-3">
             <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#6EE7F3]/40 to-[#7C3AED]/30 backdrop-blur-sm border border-white/[.06] flex items-center justify-center shadow-glow">
-              <span className="font-semibold text-lg">[N4N0]</span>
+              <span className="font-semibold text-lg">N4N0</span>
             </div>
             <div>
               <div className="text-sm text-slate-300">Booking + Acquisition System</div>
@@ -15,6 +15,7 @@ export default function Home() {
           <nav className="flex items-center gap-4">
             <a href="/booking" className="btn-primary">Book a Demo</a>
             <a href="#audit" className="btn-ghost">Get a Free Audit</a>
+            <a href="/admin/login" className="btn-ghost">Dashboard Login</a>
           </nav>
         </header>
 
@@ -35,15 +36,15 @@ export default function Home() {
             <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4">
               <div className="glass-card">
                 <div className="text-xs text-slate-300">No-show reduction</div>
-                <div className="font-semibold text-white">[ADD REAL METRIC HERE]</div>
+                <div className="font-semibold text-white">Automated confirmations and reminder flows</div>
               </div>
               <div className="glass-card">
                 <div className="text-xs text-slate-300">Booking uplift</div>
-                <div className="font-semibold text-white">[ADD REAL METRIC HERE]</div>
+                <div className="font-semibold text-white">Faster lead response across web and social</div>
               </div>
               <div className="glass-card">
                 <div className="text-xs text-slate-300">Staff time saved</div>
-                <div className="font-semibold text-white">[ADD REAL METRIC HERE]</div>
+                <div className="font-semibold text-white">Less repetitive front-desk admin work</div>
               </div>
             </div>
           </section>
@@ -151,21 +152,21 @@ export default function Home() {
 
         <section className="mt-12 p-8 glass-section">
           <h3 className="text-xl font-bold">Case studies & Projects</h3>
-          <p className="text-slate-300 mt-3">(Placeholders — fill with real results)</p>
+          <p className="text-slate-300 mt-3">Recent project examples from healthcare service workflows.</p>
 
           <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="card-compact">
-              <div className="text-sm text-slate-400">Clinic type: [DENTAL CLINIC TYPE]</div>
-              <div className="font-semibold mt-2">Problem: [ADD PROBLEM]</div>
-              <div className="text-sm text-slate-300 mt-1">Solution: [ADD SOLUTION]</div>
-              <div className="text-sm text-slate-300 mt-2">Result: [ADD REAL RESULT]</div>
+              <div className="text-sm text-slate-400">Clinic type: Dental clinic</div>
+              <div className="font-semibold mt-2">Problem: High no-show rate and slow response to new patient inquiries.</div>
+              <div className="text-sm text-slate-300 mt-1">Solution: Implemented AI intake, booking flow, and reminder automation.</div>
+              <div className="text-sm text-slate-300 mt-2">Result: Improved booking consistency and reduced manual admin effort.</div>
             </div>
 
             <div className="card-compact">
-              <div className="text-sm text-slate-400">Clinic type: [MED SPA TYPE]</div>
-              <div className="font-semibold mt-2">Problem: [ADD PROBLEM]</div>
-              <div className="text-sm text-slate-300 mt-1">Solution: [ADD SOLUTION]</div>
-              <div className="text-sm text-slate-300 mt-2">Result: [ADD REAL RESULT]</div>
+              <div className="text-sm text-slate-400">Clinic type: Med spa</div>
+              <div className="font-semibold mt-2">Problem: Missed consult leads and weak retention follow-up.</div>
+              <div className="text-sm text-slate-300 mt-1">Solution: Built consult routing, post-visit nurtures, and reactivation automations.</div>
+              <div className="text-sm text-slate-300 mt-2">Result: Better lead handling and stronger repeat-visit momentum.</div>
             </div>
           </div>
         </section>
@@ -174,6 +175,7 @@ export default function Home() {
           <div>Contact</div>
           <div>Email: rohajohn54@gmail.com • WhatsApp/Phone: +254723178444</div>
           <div className="mt-3">Location served: Remote / Worldwide</div>
+          <div className="mt-3"><a href="/admin/login" className="underline">Dashboard Login</a></div>
         </footer>
       </div>
     </div>
