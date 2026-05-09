@@ -5,6 +5,7 @@ import { useState } from 'react';
 export default function BookingPage() {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
   const [formData, setFormData] = useState({
     clinicName: '',
     location: '',
@@ -22,11 +23,26 @@ export default function BookingPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
+    setError('');
 
     try {
-      // For now, log to console and show success
-      // In production, send to an API endpoint
-      console.log('Form submitted:', formData);
+      const response = await fetch('/api/bookings', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          clinicName: formData.clinicName,
+          location: formData.location,
+          email: formData.email,
+          phone: formData.phone,
+          preferredDate: formData.preferredDate,
+          message: formData.message,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to submit booking');
+      }
+
       setSubmitted(true);
       setFormData({
         clinicName: '',
@@ -39,8 +55,9 @@ export default function BookingPage() {
 
       // Hide success message after 5 seconds
       setTimeout(() => setSubmitted(false), 5000);
-    } catch (error) {
-      console.error('Error submitting form:', error);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'An error occurred');
+      console.error('Error submitting form:', err);
     } finally {
       setLoading(false);
     }
@@ -66,7 +83,13 @@ export default function BookingPage() {
         <form onSubmit={handleSubmit} className="section-shell max-w-2xl">
           {submitted && (
             <div className="mb-6 p-4 rounded-2xl border border-emerald-300/20 bg-emerald-300/10">
-              <p className="text-emerald-200 font-medium">✓ Thank you! We'll contact you soon.</p>
+              <p className="text-emerald-200 font-medium">✓ Thank you! We'll contact you within 24 hours.</p>
+            </div>
+          )}
+
+          {error && (
+            <div className="mb-6 p-4 rounded-2xl border border-red-300/20 bg-red-300/10">
+              <p className="text-red-200 font-medium">{error}</p>
             </div>
           )}
 
@@ -166,6 +189,7 @@ export default function BookingPage() {
                 value={formData.message}
                 onChange={handleChange}
                 rows={4}
+            {/* Submit Button */}
                 className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:border-cyan-300/50 focus:ring-1 focus:ring-cyan-300/30 resize-none"
                 placeholder="Tell us a bit about your clinic or any specific questions..."
               />
@@ -189,6 +213,26 @@ export default function BookingPage() {
           {/* Footer text */}
           <div className="mt-8 pt-6 border-t border-white/8">
             <p className="text-sm text-slate-400">
+
+        {/* Calendly embed */}
+        <div className="mt-12">
+          <h2 className="text-2xl font-semibold text-white mb-6">Or Schedule Directly</h2>
+          <div className="section-shell">
+            <p className="text-slate-300 text-center mb-6">
+              Prefer to book directly? Use the calendar below to select your time.
+            </p>
+            <div
+              className="calendly-inline-widget"
+              data-url={process.env.NEXT_PUBLIC_CALENDLY_URL}
+              style={{ minWidth: '320px', height: '700px' }}
+            />
+            <script
+              type="text/javascript"
+              src="https://assets.calendly.com/assets/external/widget.js"
+              async
+            />
+          </div>
+        </div>
               We typically respond within 24 hours. Questions? Email us at{' '}
               <a href="mailto:hello@yourdomain.com" className="text-cyan-300 hover:text-cyan-200">
                 hello@yourdomain.com
