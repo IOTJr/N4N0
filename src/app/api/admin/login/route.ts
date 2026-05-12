@@ -11,7 +11,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Email and password are required.' }, { status: 400 });
     }
 
-    if (!verifyAdminCredentials(email, password)) {
+    if (!(await verifyAdminCredentials(email, password))) {
       return NextResponse.json({ error: 'Invalid admin credentials.' }, { status: 401 });
     }
 

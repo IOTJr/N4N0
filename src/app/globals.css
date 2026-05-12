@@ -1,69 +1,128 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-  --accent-1: #7C3AED;
-  --accent-2: #06B6D4;
-  --glass-bg: rgba(255,255,255,0.04);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --background: #050a12;
+  --foreground: #e8efff;
+  --accent-1: #22d3ee;
+  --accent-2: #f59e0b;
+  --line: rgba(179, 222, 255, 0.18);
+  --panel: rgba(7, 15, 29, 0.74);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-}
-.bg-cyber {
-  background: radial-gradient(1200px 600px at 10% 20%, rgba(124,58,237,0.18), transparent 15%), radial-gradient(1000px 500px at 90% 80%, rgba(6,182,212,0.12), transparent 18%), linear-gradient(180deg,#030312 0%, #071126 100%);
+  margin: 0;
+  font-family: var(--font-body), sans-serif;
 }
 
-.shadow-glow { box-shadow: 0 6px 30px rgba(124,58,237,0.12), 0 2px 10px rgba(6,182,212,0.06); }
-
-.glass {
-  background: linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
-  border: 1px solid rgba(255,255,255,0.06);
-  backdrop-filter: blur(8px) saturate(1.1);
-  border-radius: 12px;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading), sans-serif;
 }
 
-.glass-card { padding: 12px; border-radius: 10px; background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border: 1px solid rgba(255,255,255,0.04); }
-
-.card-3d { transform: perspective(900px) rotateX(6deg) translateZ(0); }
-.card-compact { padding: 14px; border-radius:10px; background: rgba(12,14,18,0.45); border: 1px solid rgba(255,255,255,0.04); }
-.glass-section { background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border-radius:12px; border:1px solid rgba(255,255,255,0.04); }
-
-.btn-primary{ background: linear-gradient(90deg,var(--accent-1),var(--accent-2)); padding:10px 16px; border-radius:999px; font-weight:600; color:#041022;}
-.btn-ghost{ background:transparent; color:#9CA3AF; padding:8px 12px; border-radius:999px; border:1px solid rgba(255,255,255,0.03); }
-.btn-cta{ background: linear-gradient(90deg,#06B6D4,#7C3AED); padding:12px 20px; border-radius:999px; font-weight:700; color:#fff; }
-.btn-outline{ background: transparent; border:1px solid rgba(255,255,255,0.08); padding:10px 16px; border-radius:999px; color:#d1d5db }
-
-.workflow { margin-top:18px; transform: translateZ(0); }
-
-/* Shared dashboard + booking shells */
 .site-shell {
-  background: radial-gradient(1200px 600px at 10% 20%, rgba(124,58,237,0.16), transparent 15%), radial-gradient(1000px 500px at 90% 80%, rgba(6,182,212,0.1), transparent 18%), linear-gradient(180deg,#030312 0%, #071126 100%);
+  position: relative;
+  background:
+    radial-gradient(900px 500px at -10% 0%, rgba(34, 211, 238, 0.2), transparent 50%),
+    radial-gradient(850px 480px at 100% 100%, rgba(245, 158, 11, 0.15), transparent 48%),
+    linear-gradient(180deg, #040810 0%, #081224 62%, #060f1d 100%);
 }
 
-.section-shell {
-  background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 16px;
-  padding: 24px;
-  backdrop-filter: blur(8px);
+.site-glow {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size: 52px 52px;
+  mask-image: radial-gradient(circle at center, rgba(0, 0, 0, 0.65), transparent 82%);
+  opacity: 0.2;
+}
+
+.panel-shell {
+  border: 1px solid rgba(148, 220, 255, 0.2);
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.01));
+  backdrop-filter: blur(12px);
+  border-radius: 22px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 24px 70px rgba(0, 0, 0, 0.3);
+  animation: rise-in 0.6s ease both;
+}
+
+.panel-highlight {
+  border-color: rgba(245, 158, 11, 0.26);
+  background: linear-gradient(165deg, rgba(245, 158, 11, 0.12), rgba(9, 17, 34, 0.72));
+}
+
+.logo-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #d9f7ff;
+  background: linear-gradient(140deg, rgba(34, 211, 238, 0.35), rgba(245, 158, 11, 0.2));
+  border: 1px solid rgba(192, 240, 255, 0.3);
 }
 
 .section-kicker {
   font-size: 0.72rem;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: #8fd8ff;
+  color: #9be8ff;
+}
+
+.hero-title {
+  background: linear-gradient(95deg, #f6fbff, #acf2ff 52%, #ffe0ad 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.flow-item {
+  border-left: 2px solid rgba(34, 211, 238, 0.38);
+  padding-left: 0.75rem;
+}
+
+.stat-card {
+  border-radius: 16px;
+  border: 1px solid rgba(170, 229, 255, 0.2);
+  background: rgba(8, 18, 35, 0.7);
+  padding: 16px;
+}
+
+.stat-value {
+  display: block;
+  color: #e5f8ff;
+  font-size: 1.45rem;
+  font-weight: 700;
+}
+
+.stat-label {
+  display: block;
+  margin-top: 0.35rem;
+  color: #9fb4d3;
+  font-size: 0.88rem;
+}
+
+.price-line {
+  color: #d3e2fb;
+  font-size: 1rem;
+}
+
+/* Shared dashboard + booking shells */
+.section-shell {
+  background: var(--panel);
+  border: 1px solid rgba(165, 222, 251, 0.18);
+  border-radius: 18px;
+  padding: 24px;
+  backdrop-filter: blur(10px);
 }
 
 .button {
@@ -76,14 +135,14 @@ body {
 }
 
 .button-primary {
-  color: #041022;
-  background: linear-gradient(90deg, var(--accent-2), var(--accent-1));
+  color: #041018;
+  background: linear-gradient(100deg, var(--accent-1), #7dd3fc 55%, var(--accent-2));
 }
 
 .button-secondary {
-  color: #d1d5db;
-  border: 1px solid rgba(255,255,255,0.15);
-  background: rgba(255,255,255,0.04);
+  color: #dbe8ff;
+  border: 1px solid rgba(164, 220, 248, 0.2);
+  background: rgba(255, 255, 255, 0.03);
 }
 
 .metric-card {
@@ -117,3 +176,14 @@ body {
 *{ transition: all 0.28s cubic-bezier(.2,.9,.2,1); }
 
 @media (prefers-reduced-motion: reduce){ *{ transition: none !important } }
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

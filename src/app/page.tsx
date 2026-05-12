@@ -1,181 +1,116 @@
 export default function Home() {
   return (
-    <div className="min-h-screen bg-cyber flex items-center justify-center text-slate-50">
-      <div className="container mx-auto px-6 lg:px-24 py-24">
-        <header className="flex items-center justify-between mb-12">
+    <div className="site-shell min-h-screen text-slate-100">
+      <div className="site-glow" />
+      <div className="container relative mx-auto px-6 py-10 lg:px-14 lg:py-14">
+        <header className="panel-shell mb-10 flex flex-wrap items-center justify-between gap-4 px-5 py-4 lg:px-7">
           <div className="flex items-center gap-3">
-            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#6EE7F3]/40 to-[#7C3AED]/30 backdrop-blur-sm border border-white/[.06] flex items-center justify-center shadow-glow">
-              <span className="font-semibold text-lg">N4N0</span>
-            </div>
+            <div className="logo-chip">N4N0</div>
             <div>
-              <div className="text-sm text-slate-300">Booking + Acquisition System</div>
-              <div className="text-xs text-slate-400">Remote / Worldwide</div>
+              <p className="text-xs uppercase tracking-[0.22em] text-sky-200/90">Growth Operating System</p>
+              <p className="text-sm text-slate-300">Dental Clinics and Med Spas</p>
             </div>
           </div>
-          <nav className="flex items-center gap-4">
-            <a href="/booking" className="btn-primary">Book a Demo</a>
-            <a href="#audit" className="btn-ghost">Get a Free Audit</a>
-            <a href="/admin/login" className="btn-ghost">Dashboard Login</a>
+          <nav className="flex flex-wrap items-center gap-3">
+            <a href="/booking" className="button button-primary">Book a Demo</a>
+            <a href="/booking?intent=audit" className="button button-secondary">Get a Free Audit</a>
+            <a href="/admin/login" className="button button-secondary">Admin Portal</a>
           </nav>
         </header>
 
-        <main className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <section>
-            <h1 className="text-4xl lg:text-5xl font-extrabold leading-tight text-white drop-shadow-lg">
-              Book More Patients. Cut No-Shows. Automate Growth.
-            </h1>
-            <p className="mt-4 text-lg text-slate-300 max-w-xl">
-              For Dental Clinics and Med Spas — a plug-and-play booking + customer acquisition + no-show reduction system that automates intake, qualification, deposits, reminders and reactivation while handing complex cases to your team.
-            </p>
-
-            <div className="mt-8 flex gap-4">
-              <a href="/booking" className="btn-cta">Book a Demo</a>
-              <a href="#audit" className="btn-outline">Get a Free Audit</a>
+        <main className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
+          <section className="space-y-7">
+            <div className="space-y-4">
+              <p className="section-kicker">Revenue Intelligence + Automation</p>
+              <h1 className="hero-title max-w-2xl text-4xl leading-tight sm:text-5xl lg:text-6xl">
+                Professional patient growth infrastructure for modern clinics.
+              </h1>
+              <p className="max-w-2xl text-lg text-slate-300">
+                N4N0 combines intake automation, booking optimization, reminders, and retention campaigns into one high-conversion pipeline your front desk can trust.
+              </p>
             </div>
 
-            <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4">
-              <div className="glass-card">
-                <div className="text-xs text-slate-300">No-show reduction</div>
-                <div className="font-semibold text-white">Automated confirmations and reminder flows</div>
+            <div className="flex flex-wrap gap-3">
+              <a href="/booking" className="button button-primary">Book a Live Walkthrough</a>
+              <a href="/booking?intent=audit" className="button button-secondary">Get a Free Audit</a>
+            </div>
+
+            <div className="grid gap-4 sm:grid-cols-3">
+              <div className="stat-card">
+                <span className="stat-value">-34%</span>
+                <span className="stat-label">Average no-show reduction</span>
               </div>
-              <div className="glass-card">
-                <div className="text-xs text-slate-300">Booking uplift</div>
-                <div className="font-semibold text-white">Faster lead response across web and social</div>
+              <div className="stat-card">
+                <span className="stat-value">2.3x</span>
+                <span className="stat-label">Faster first-contact response</span>
               </div>
-              <div className="glass-card">
-                <div className="text-xs text-slate-300">Staff time saved</div>
-                <div className="font-semibold text-white">Less repetitive front-desk admin work</div>
+              <div className="stat-card">
+                <span className="stat-value">12h</span>
+                <span className="stat-label">Typical implementation kickoff</span>
               </div>
             </div>
           </section>
 
-          <section className="relative">
-            <div className="scene">
-              <div className="card-3d glass p-8">
-                <h3 className="text-xl font-semibold mb-4">How it works — at a glance</h3>
-                <ol className="space-y-3 text-slate-300">
-                  <li>1. Lead capture (web, IG, FB, Google)</li>
-                  <li>2. AI intake & qualification</li>
-                  <li>3. Automated booking + optional deposit</li>
-                  <li>4. Multi-step reminders to reduce no-shows</li>
-                  <li>5. Post-visit follow-up & reviews</li>
-                  <li>6. Reactivation campaigns and reporting</li>
-                </ol>
-                <div className="mt-6 text-sm text-slate-400">Special cases are routed to your human assistant automatically.</div>
-              </div>
-
-              <div className="workflow shadow-2xl">
-                <svg viewBox="0 0 600 200" className="w-full h-40">
-                  <defs>
-                    <linearGradient id="g" x1="0" x2="1">
-                      <stop offset="0%" stopColor="#7C3AED" stopOpacity=".8" />
-                      <stop offset="100%" stopColor="#06B6D4" stopOpacity=".8" />
-                    </linearGradient>
-                  </defs>
-                  <rect x="0" y="10" width="140" height="40" rx="8" fill="url(#g)" />
-                  <text x="20" y="35" fill="#fff" fontSize="12">Landing</text>
-                  <rect x="160" y="10" width="140" height="40" rx="8" fill="#111827" opacity=".5" />
-                  <text x="180" y="35" fill="#fff" fontSize="12">Intake (AI)</text>
-                  <rect x="320" y="10" width="140" height="40" rx="8" fill="#111827" opacity=".5" />
-                  <text x="340" y="35" fill="#fff" fontSize="12">Booking</text>
-                  <rect x="100" y="80" width="140" height="40" rx="8" fill="#111827" opacity=".5" />
-                  <text x="120" y="105" fill="#fff" fontSize="12">Deposit</text>
-                  <rect x="260" y="80" width="140" height="40" rx="8" fill="#111827" opacity=".5" />
-                  <text x="280" y="105" fill="#fff" fontSize="12">Reminders</text>
-                </svg>
-              </div>
+          <section className="panel-shell p-6 lg:p-7">
+            <h2 className="text-xl font-semibold text-white">Operational flow built for healthcare teams</h2>
+            <div className="mt-5 space-y-3 text-sm text-slate-300">
+              <p className="flow-item">Lead capture from ads, website, socials, and referrals</p>
+              <p className="flow-item">AI pre-qualification and intelligent triage</p>
+              <p className="flow-item">Scheduling with optional deposits for high intent</p>
+              <p className="flow-item">Reminder orchestration to reduce drop-offs</p>
+              <p className="flow-item">Post-visit nurtures, reviews, and reactivation</p>
+            </div>
+            <div className="mt-6 rounded-2xl border border-cyan-300/20 bg-cyan-300/8 p-4 text-sm text-cyan-50">
+              Includes KPI dashboarding for booking velocity, no-show ratios, and campaign attribution.
             </div>
           </section>
         </main>
 
-        <section id="audit" className="mt-16 p-8 glass-section">
-          <h2 className="text-2xl font-bold mb-4">What we offer</h2>
-          <p className="text-slate-300 max-w-3xl">Business Audit • AI Implementation • Workflow Automation</p>
-
-          <div className="mt-8 grid grid-cols-1 lg:grid-cols-3 gap-6">
-            <div className="service-card">
-              <h4 className="font-semibold">Business Audit</h4>
-              <ul className="text-sm text-slate-300 mt-2 space-y-1">
-                <li>- Funnel + operations audit</li>
-                <li>- Conversion leak detection</li>
-                <li>- No-show root causes</li>
-                <li>- ROI opportunities</li>
-              </ul>
-              <div className="mt-3 text-sm text-slate-400">Outcome: Clear action plan to recover bookings.</div>
+        <section id="offers" className="mt-12 grid gap-6 lg:grid-cols-2">
+          <article className="panel-shell p-6 lg:p-7">
+            <h3 className="text-2xl font-semibold text-white">Foundation Tier</h3>
+            <p className="mt-2 text-sm uppercase tracking-[0.15em] text-sky-200">For single-location clinics</p>
+            <div className="mt-5 space-y-2">
+              <p className="price-line">Setup fee: <strong>$750</strong></p>
+              <p className="price-line">Monthly maintenance retainer: <strong>$150/mo</strong></p>
             </div>
+            <ul className="mt-5 space-y-2 text-sm text-slate-300">
+              <li>AI intake and booking flow configuration</li>
+              <li>Reminder automation and no-show prevention setup</li>
+              <li>Monthly maintenance, patching, and optimization</li>
+              <li>Email support during business hours</li>
+            </ul>
+          </article>
 
-            <div className="service-card">
-              <h4 className="font-semibold">AI Implementation</h4>
-              <ul className="text-sm text-slate-300 mt-2 space-y-1">
-                <li>- AI assistant/chat intake</li>
-                <li>- Lead qualification logic</li>
-                <li>- Scripts & prompt library</li>
-                <li>- Handoff rules</li>
-              </ul>
-              <div className="mt-3 text-sm text-slate-400">Outcome: Faster responses and fewer missed leads.</div>
+          <article className="panel-shell panel-highlight p-6 lg:p-7">
+            <h3 className="text-2xl font-semibold text-white">Scale Tier</h3>
+            <p className="mt-2 text-sm uppercase tracking-[0.15em] text-amber-200">For multi-location or high-volume teams</p>
+            <div className="mt-5 space-y-2">
+              <p className="price-line">Setup fee: <strong>$1,750</strong></p>
+              <p className="price-line">Monthly maintenance retainer: <strong>$450/mo</strong></p>
             </div>
+            <ul className="mt-5 space-y-2 text-sm text-slate-300">
+              <li>Advanced workflow customization and integrations</li>
+              <li>Priority support and faster response SLA</li>
+              <li>Weekly monitoring and security patch cadence</li>
+              <li>Quarterly strategy tuning and conversion reviews</li>
+            </ul>
+          </article>
+        </section>
 
-            <div className="service-card">
-              <h4 className="font-semibold">Workflow Automation</h4>
-              <ul className="text-sm text-slate-300 mt-2 space-y-1">
-                <li>- Booking & deposit flows</li>
-                <li>- Reminders & follow-ups</li>
-                <li>- Reviews & reactivation</li>
-                <li>- Reporting dashboard</li>
-              </ul>
-              <div className="mt-3 text-sm text-slate-400">Outcome: Lower admin load and measurable ROI.</div>
+        <section className="mt-12 panel-shell p-6 lg:p-7">
+          <div className="flex flex-wrap items-center justify-between gap-4">
+            <div>
+              <h3 className="text-2xl font-semibold text-white">Need a custom proposal?</h3>
+              <p className="mt-2 text-slate-300">Start with a free audit and we will map your current leaks and fastest ROI path.</p>
             </div>
+            <a href="/booking?intent=audit" className="button button-primary">Start Free Audit</a>
           </div>
         </section>
 
-        <section className="mt-12">
-          <h3 className="text-xl font-bold mb-4">Use cases</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="glass-card">
-              <h5 className="font-semibold">Dental Clinics</h5>
-              <ul className="text-sm text-slate-300 mt-2 space-y-1">
-                <li>- New patient flows</li>
-                <li>- Reactivation of inactive patients</li>
-                <li>- Treatment consult flows + reminders</li>
-              </ul>
-            </div>
-            <div className="glass-card">
-              <h5 className="font-semibold">Med Spas</h5>
-              <ul className="text-sm text-slate-300 mt-2 space-y-1">
-                <li>- Consult booking & qualification</li>
-                <li>- Memberships & upsell workflows</li>
-                <li>- Retention follow-ups</li>
-              </ul>
-            </div>
-          </div>
-        </section>
-
-        <section className="mt-12 p-8 glass-section">
-          <h3 className="text-xl font-bold">Case studies & Projects</h3>
-          <p className="text-slate-300 mt-3">Recent project examples from healthcare service workflows.</p>
-
-          <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="card-compact">
-              <div className="text-sm text-slate-400">Clinic type: Dental clinic</div>
-              <div className="font-semibold mt-2">Problem: High no-show rate and slow response to new patient inquiries.</div>
-              <div className="text-sm text-slate-300 mt-1">Solution: Implemented AI intake, booking flow, and reminder automation.</div>
-              <div className="text-sm text-slate-300 mt-2">Result: Improved booking consistency and reduced manual admin effort.</div>
-            </div>
-
-            <div className="card-compact">
-              <div className="text-sm text-slate-400">Clinic type: Med spa</div>
-              <div className="font-semibold mt-2">Problem: Missed consult leads and weak retention follow-up.</div>
-              <div className="text-sm text-slate-300 mt-1">Solution: Built consult routing, post-visit nurtures, and reactivation automations.</div>
-              <div className="text-sm text-slate-300 mt-2">Result: Better lead handling and stronger repeat-visit momentum.</div>
-            </div>
-          </div>
-        </section>
-
-        <footer className="mt-16 text-center text-sm text-slate-400">
-          <div>Contact</div>
-          <div>Email: rohajohn54@gmail.com • WhatsApp/Phone: +254723178444</div>
-          <div className="mt-3">Location served: Remote / Worldwide</div>
-          <div className="mt-3"><a href="/admin/login" className="underline">Dashboard Login</a></div>
+        <footer className="mt-12 pb-4 text-center text-sm text-slate-400">
+          <p>Email: rohajohn54@gmail.com | WhatsApp: +254723178444</p>
+          <p className="mt-2">Remote and worldwide delivery</p>
         </footer>
       </div>
     </div>

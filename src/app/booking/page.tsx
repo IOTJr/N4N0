@@ -1,8 +1,13 @@
 'use client';
 
 import { useState } from 'react';
+import { useSearchParams } from 'next/navigation';
 
 export default function BookingPage() {
+  const searchParams = useSearchParams();
+  const intent = searchParams.get('intent') === 'audit' ? 'audit' : 'demo';
+  const isAudit = intent === 'audit';
+
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
@@ -12,6 +17,8 @@ export default function BookingPage() {
     email: '',
     phone: '',
     preferredDate: '',
+    monthlyBookings: '',
+    mainChallenge: '',
     message: '',
   });
 
@@ -29,7 +36,10 @@ export default function BookingPage() {
       const response = await fetch('/api/bookings', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          ...formData,
+          inquiryType: isAudit ? 'free_audit' : 'demo_request',
+        }),
       });
 
       if (!response.ok) {
@@ -43,6 +53,8 @@ export default function BookingPage() {
         email: '',
         phone: '',
         preferredDate: '',
+        monthlyBookings: '',
+        mainChallenge: '',
         message: '',
       });
 
@@ -63,9 +75,13 @@ export default function BookingPage() {
         </a>
 
         <div className="mb-12">
-          <h1 className="text-5xl font-semibold leading-tight text-white mb-4">Book Your Demo</h1>
+          <h1 className="text-5xl font-semibold leading-tight text-white mb-4">
+            {isAudit ? 'Get Your Free Growth Audit' : 'Book Your Demo'}
+          </h1>
           <p className="text-lg text-slate-300">
-            Tell us about your clinic and we&apos;ll schedule a personalized walkthrough of N4N0.
+            {isAudit
+              ? 'Share your current workflow details and we will send a focused audit with practical recommendations.'
+              : 'Tell us about your clinic and we&apos;ll schedule a personalized walkthrough of N4N0.'}
           </p>
         </div>
 
@@ -149,7 +165,7 @@ export default function BookingPage() {
 
             <div>
               <label htmlFor="preferredDate" className="mb-2 block text-sm font-medium text-slate-200">
-                Preferred Demo Date *
+                Preferred {isAudit ? 'Call' : 'Demo'} Date *
               </label>
               <input
                 type="date"
@@ -159,6 +175,36 @@ export default function BookingPage() {
                 onChange={handleChange}
                 required
                 className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white focus:border-cyan-300/50 focus:outline-none focus:ring-1 focus:ring-cyan-300/30"
+              />
+            </div>
+
+            <div>
+              <label htmlFor="monthlyBookings" className="mb-2 block text-sm font-medium text-slate-200">
+                Approximate Monthly Bookings
+              </label>
+              <input
+                type="text"
+                id="monthlyBookings"
+                name="monthlyBookings"
+                value={formData.monthlyBookings}
+                onChange={handleChange}
+                className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-slate-500 focus:border-cyan-300/50 focus:outline-none focus:ring-1 focus:ring-cyan-300/30"
+                placeholder="e.g., 120"
+              />
+            </div>
+
+            <div>
+              <label htmlFor="mainChallenge" className="mb-2 block text-sm font-medium text-slate-200">
+                Main Growth Challenge
+              </label>
+              <input
+                type="text"
+                id="mainChallenge"
+                name="mainChallenge"
+                value={formData.mainChallenge}
+                onChange={handleChange}
+                className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-slate-500 focus:border-cyan-300/50 focus:outline-none focus:ring-1 focus:ring-cyan-300/30"
+                placeholder="No-shows, slow lead response, weak retention, etc."
               />
             </div>
 
@@ -183,7 +229,7 @@ export default function BookingPage() {
                 disabled={loading}
                 className="button button-primary disabled:cursor-not-allowed disabled:opacity-50"
               >
-                {loading ? 'Submitting...' : 'Request Demo'}
+                {loading ? 'Submitting...' : isAudit ? 'Request Free Audit' : 'Request Demo'}
               </button>
               <a href="/" className="button button-secondary">
                 Cancel

@@ -5,7 +5,17 @@ import { sendConfirmationEmail, sendAdminNotification } from '@/lib/email';
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { clinicName, location, email, phone, preferredDate, message } = body;
+    const {
+      clinicName,
+      location,
+      email,
+      phone,
+      preferredDate,
+      message,
+      monthlyBookings,
+      mainChallenge,
+      inquiryType,
+    } = body;
 
     // Validate required fields
     if (!clinicName || !location || !email || !phone || !preferredDate) {
@@ -23,6 +33,9 @@ export async function POST(request: NextRequest) {
         email,
         phone,
         preferred_date: preferredDate,
+        inquiry_type: String(inquiryType ?? 'demo_request'),
+        monthly_bookings: String(monthlyBookings ?? '').trim(),
+        main_challenge: String(mainChallenge ?? '').trim(),
         message: message || '',
         created_at: new Date().toISOString(),
       },

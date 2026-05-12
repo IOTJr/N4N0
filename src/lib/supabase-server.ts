@@ -27,6 +27,7 @@ const memoryDb: TableState = globalState.__n4n0Db ?? {
   clinics: [],
   invoices: [],
   expenses: [],
+  admins: [],
 };
 
 globalState.__n4n0Db = memoryDb;
