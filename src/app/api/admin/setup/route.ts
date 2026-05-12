@@ -19,26 +19,27 @@ export async function POST(request: NextRequest) {
     const fullName = String(body.fullName ?? '').trim();
     const setupKey = String(body.setupKey ?? '').trim();
 
-    if (!email || !password || !setupKey) {
+    if (!email || !password) {
       return NextResponse.json(
-        { error: 'Email, password, and setup key are required.' },
+        { error: 'Email and password are required.' },
         { status: 400 },
       );
     }
 
-    if (!isValidSetupKey(setupKey)) {
-      return NextResponse.json({ error: 'Invalid setup key.' }, { status: 401 });
-    }
-
     const hasExistingAdmins = await hasAdminUsers();
     if (hasExistingAdmins) {
-      return NextResponse.json(
-        {
-          error:
-            'Admin setup is already completed. Use the existing admin account or create a secured internal onboarding flow for additional admins.',
-        },
-        { status: 409 },
-      );
+      if (!setupKey) {
+        return NextResponse.json(
+          { error: 'Setup key is required for adding another admin account.' },
+          { status: 400 },
+        );
+      }
+
+      if (!isValidSetupKey(setupKey)) {
+        return NextResponse.json({ error: 'Invalid setup key.' }, { status: 401 });
+      }
+    } else if (setupKey && !isValidSetupKey(setupKey)) {
+      return NextResponse.json({ error: 'Invalid setup key.' }, { status: 401 });
     }
 
     const result = await createAdminUser({ email, password, fullName });

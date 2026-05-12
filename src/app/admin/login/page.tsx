@@ -68,10 +68,8 @@ export default function AdminLoginPage() {
             <div className="mt-8 space-y-3 text-sm text-slate-400">
               <p>Use your admin email and password to sign in.</p>
               <p>Session expires automatically after 12 hours.</p>
-              <p>If this is your first time, switch to account setup and create your admin user in the database.</p>
-              <p>
-                The setup key is the <span className="text-white">ADMIN_SETUP_KEY</span> value in your local `.env.local` file.
-              </p>
+              <p>If this is your first time, switch to account setup and create your first admin account without a setup key.</p>
+              <p>The setup key is only needed later if you add another admin account.</p>
             </div>
           </section>
 
@@ -152,7 +150,7 @@ export default function AdminLoginPage() {
               {mode === 'setup' && (
                 <div>
                   <label htmlFor="setupKey" className="mb-2 block text-sm font-medium text-slate-200">
-                    Setup Key
+                    Setup Key (optional for additional admins)
                   </label>
                   <input
                     id="setupKey"
@@ -160,7 +158,7 @@ export default function AdminLoginPage() {
                     value={setupKey}
                     onChange={(event) => setSetupKey(event.target.value)}
                     className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-slate-500 focus:border-cyan-300/50 focus:outline-none focus:ring-1 focus:ring-cyan-300/30"
-                    placeholder="Enter ADMIN_SETUP_KEY"
+                    placeholder="Leave blank for first-time setup"
                   />
                 </div>
               )}
