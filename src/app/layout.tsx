@@ -17,6 +17,14 @@ const bodyFont = Manrope({
 export const metadata: Metadata = {
   title: "N4N0 — Booking + Acquisition System",
   description: "Booking, acquisition and no-show reduction for Dental Clinics and Med Spas",
+  icons: {
+    icon: [
+      { url: '/favicon.png', type: 'image/png' },
+      { url: '/favicon.ico' },
+    ],
+    shortcut: '/favicon.ico',
+    apple: '/favicon.png',
+  },
 };
 
 export default function RootLayout({

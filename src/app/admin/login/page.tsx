@@ -2,6 +2,7 @@
 
 import { useState, type FormEvent } from 'react';
 import { useRouter } from 'next/navigation';
+import BrandLogo from '@/components/brand-logo';
 
 export default function AdminLoginPage() {
   const router = useRouter();
@@ -58,6 +59,7 @@ export default function AdminLoginPage() {
       <div className="container mx-auto flex min-h-screen max-w-6xl items-center justify-center px-6 py-12">
         <div className="grid w-full gap-8 lg:grid-cols-[0.85fr_1.15fr]">
           <section className="section-shell">
+            <BrandLogo compact className="mb-6" />
             <p className="section-kicker">Admin access</p>
             <h1 className="mt-4 text-5xl font-semibold tracking-tight text-white">Control center access for N4N0.</h1>
             <p className="mt-4 max-w-lg text-lg leading-8 text-slate-300">
@@ -67,6 +69,9 @@ export default function AdminLoginPage() {
               <p>Use your admin email and password to sign in.</p>
               <p>Session expires automatically after 12 hours.</p>
               <p>If this is your first time, switch to account setup and create your admin user in the database.</p>
+              <p>
+                The setup key is the <span className="text-white">ADMIN_SETUP_KEY</span> value in your local `.env.local` file.
+              </p>
             </div>
           </section>
 

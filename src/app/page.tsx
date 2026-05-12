@@ -1,16 +1,12 @@
+import BrandLogo from '@/components/brand-logo';
+
 export default function Home() {
   return (
     <div className="site-shell min-h-screen text-slate-100">
       <div className="site-glow" />
       <div className="container relative mx-auto px-6 py-10 lg:px-14 lg:py-14">
         <header className="panel-shell mb-10 flex flex-wrap items-center justify-between gap-4 px-5 py-4 lg:px-7">
-          <div className="flex items-center gap-3">
-            <div className="logo-chip">N4N0</div>
-            <div>
-              <p className="text-xs uppercase tracking-[0.22em] text-sky-200/90">Growth Operating System</p>
-              <p className="text-sm text-slate-300">Dental Clinics and Med Spas</p>
-            </div>
-          </div>
+          <BrandLogo />
           <nav className="flex flex-wrap items-center gap-3">
             <a href="/booking" className="button button-primary">Book a Demo</a>
             <a href="/free-audit" className="button button-secondary">Get a Free Audit</a>
@@ -67,6 +63,14 @@ export default function Home() {
             </div>
           </section>
         </main>
+
+        <section className="mt-12 panel-shell p-6 lg:p-7">
+          <p className="section-kicker">Brand assets</p>
+          <p className="mt-3 text-slate-300">
+            Place your PNG logo at <span className="font-semibold text-white">public/logo.png</span> and your favicon at{' '}
+            <span className="font-semibold text-white">public/favicon.png</span>. The site and browser tab will pick them up automatically.
+          </p>
+        </section>
 
         <section id="offers" className="mt-12 grid gap-6 lg:grid-cols-2">
           <article className="panel-shell p-6 lg:p-7">

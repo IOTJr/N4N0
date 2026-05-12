@@ -25,6 +25,8 @@ Use `.env.local.example` as the base.
 - `ADMIN_SETUP_KEY`
 - `NEXT_PUBLIC_CALENDLY_URL`
 
+The admin setup key is not stored in GitHub. Add it to your local `.env.local` as `ADMIN_SETUP_KEY` and use that same value on the admin setup screen.
+
 ## Admin DB setup
 
 Create the `admins` table in Supabase SQL editor:
@@ -41,6 +43,11 @@ create table if not exists admins (
 ```
 
 Then open `/admin/login`, switch to **First-time setup**, and create the initial admin user using `ADMIN_SETUP_KEY`.
+
+If you have PNG branding assets, place them here:
+
+- `public/logo.png`
+- `public/favicon.png`
 
 ## Lead capture and free audit flow
 
