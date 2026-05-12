@@ -13,7 +13,7 @@ export default function Home() {
           </div>
           <nav className="flex flex-wrap items-center gap-3">
             <a href="/booking" className="button button-primary">Book a Demo</a>
-            <a href="/booking?intent=audit" className="button button-secondary">Get a Free Audit</a>
+            <a href="/free-audit" className="button button-secondary">Get a Free Audit</a>
             <a href="/admin/login" className="button button-secondary">Admin Portal</a>
           </nav>
         </header>
@@ -32,8 +32,10 @@ export default function Home() {
 
             <div className="flex flex-wrap gap-3">
               <a href="/booking" className="button button-primary">Book a Live Walkthrough</a>
-              <a href="/booking?intent=audit" className="button button-secondary">Get a Free Audit</a>
+              <a href="/free-audit" className="button button-secondary">Get a Free Audit</a>
             </div>
+
+            <p className="text-xs uppercase tracking-[0.16em] text-slate-400">Deployment marker: May 12, 2026 R2</p>
 
             <div className="grid gap-4 sm:grid-cols-3">
               <div className="stat-card">
@@ -104,7 +106,7 @@ export default function Home() {
               <h3 className="text-2xl font-semibold text-white">Need a custom proposal?</h3>
               <p className="mt-2 text-slate-300">Start with a free audit and we will map your current leaks and fastest ROI path.</p>
             </div>
-            <a href="/booking?intent=audit" className="button button-primary">Start Free Audit</a>
+            <a href="/free-audit" className="button button-primary">Start Free Audit</a>
           </div>
         </section>
 
