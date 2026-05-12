@@ -1,12 +1,14 @@
 'use client';
 
-import { useState } from 'react';
-import { useSearchParams } from 'next/navigation';
+import { useEffect, useState } from 'react';
 
 export default function BookingPage() {
-  const searchParams = useSearchParams();
-  const intent = searchParams.get('intent') === 'audit' ? 'audit' : 'demo';
-  const isAudit = intent === 'audit';
+  const [isAudit, setIsAudit] = useState(false);
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    setIsAudit(params.get('intent') === 'audit');
+  }, []);
 
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
